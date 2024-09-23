@@ -15,10 +15,7 @@ const PORT = process.env.PORT || 4000;
 // middlewares;
 
 app.use(express.json());
-app.use(cors({
-      origin: ["http://localhost:5174"],
-      credentials: true
-}));
+app.use(cors());
 
 // Db connection
 connectDB();
@@ -31,9 +28,9 @@ app.use("/api/user",userRouter);
 app.use("/api/cart",cartRouter);
 app.use("/api/order",orderRouter);
 
-// app.get("/",(req,res)=>{
-//      res.send("API Working");
-// })
+app.get("/",(req,res)=>{
+     res.send("API Working");
+})
 
 app.listen(PORT,()=>{
     console.log(`Server Started on http://localhost:${PORT}`)
